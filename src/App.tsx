@@ -9,7 +9,7 @@ function App() {
           Click Me
         </Button>
         <Button colorPalette="teal" variant="outline">
-          Secondary Actions
+          Secondary Action
         </Button>
       </HStack>
     </Box>
