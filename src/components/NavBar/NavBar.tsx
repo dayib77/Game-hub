@@ -1,12 +1,14 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
 import logo from "../../assets/Logo/logo.webp";
+
+import DarkModeToggle from "../Color/DarkModeToggle";
 
 const NavBar = () => {
   return (
-    <HStack>
+    <HStack justifyContent="space-between" padding="10px">
       <Image src={logo} boxSize="60px" />
       {/* <Heading fontSize="2xl">GameHub</Heading> */}
-      <Text>GameHub</Text>
+      <DarkModeToggle />
     </HStack>
   );
 };
