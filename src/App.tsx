@@ -2,24 +2,22 @@ import { Grid, GridItem } from "@chakra-ui/react";
 
 function App() {
   return (
+    // Newer version
     <Grid
       templateAreas={{
-        base: `"nav" "main" `,
-        md: `"nav nav" "aside main"`,
+        base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
     >
-      <GridItem area="nav" bg="blue.500">
+      <GridItem area="nav" bg="coral">
         Nav
       </GridItem>
-      <GridItem
-        area="aside"
-        bg="green.500"
-        display={{ base: "none", md: "block" }}
-      >
+
+      <GridItem area="aside" bg="gold" hideBelow="lg">
         Aside
       </GridItem>
-      <GridItem area="main" bg="red.500">
+
+      <GridItem area="main" bg="dodgerblue">
         Main
       </GridItem>
     </Grid>
