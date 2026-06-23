@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Provider } from "./components/ui/provider";
+import { Provider } from "./components/ui/provider"; // The generated provider
 
 import App from "./App.tsx";
 
