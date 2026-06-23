@@ -1,39 +1,7 @@
-import { useEffect, useState } from "react";
-import { apiClient } from "../../services/api-client";
-
-interface Game {
-  id: number;
-  name: string;
-}
-
-interface GameResponse {
-  count: number;
-  results: Game[];
-}
+import useGames from "../../hooks/useGames";
 
 const Game = () => {
-  const [game, setGame] = useState<Game[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchGame = async () => {
-      setLoading(true);
-
-      try {
-        const data = await apiClient.get<GameResponse>("/games");
-        setGame(data.results);
-      } catch (error: unknown) {
-        setError(
-          error instanceof Error ? error.message : "An unknown error occurred",
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchGame();
-  }, []);
+  const { game, loading, error } = useGames();
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
