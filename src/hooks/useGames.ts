@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { apiClient } from "../services/api-client";
 
-interface Game {
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
 }
 
 interface GameResponse {
@@ -17,14 +18,15 @@ const useGames = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const controller = new AbortController();
+    const controller = new AbortController(); // Create an AbortController to handle request cancellation
+
     const fetchGame = async () => {
       setLoading(true);
 
       try {
         const data: GameResponse = await apiClient.get<GameResponse>(
           "/games",
-          undefined,
+          undefined, // No additional query parameters
           controller.signal,
         );
         setLoading(false);
