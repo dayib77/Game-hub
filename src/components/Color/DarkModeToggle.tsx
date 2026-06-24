@@ -10,7 +10,7 @@ const DarkModeToggle = () => {
     <HStack gap="3">
       {/* 2. Use the updated 'checked' and 'onCheckedChange' props */}
       <Switch
-        colorPalette="green"
+        colorPalette="purple"
         checked={colorMode === "dark"}
         onCheckedChange={toggleColorMode}
         label="Dark Mode"
