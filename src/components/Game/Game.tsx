@@ -5,7 +5,7 @@ import GameSkeleton from "./GameSkeleton";
 import GameCardContainer from "./GameCardContainer";
 
 const Game = () => {
-  const { game, loading, error } = useGames();
+  const { data: games, loading, error } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
@@ -14,7 +14,7 @@ const Game = () => {
       {error && <div>Error: {error}</div>}
 
       {/* No game data available */}
-      {!loading && !error && game.length === 0 && (
+      {!loading && !error && games.length === 0 && (
         <div>No game data available.</div>
       )}
 
@@ -35,7 +35,7 @@ const Game = () => {
         {/* Game cards */}
         {!loading &&
           !error &&
-          game.map(g => (
+          games.map(g => (
             <GameCardContainer>
               <GameCard key={g.id} game={g} />
             </GameCardContainer>
