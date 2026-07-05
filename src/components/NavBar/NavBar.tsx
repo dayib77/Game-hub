@@ -10,7 +10,7 @@ const NavBar = () => {
       <HStack>
         {/*gap="4" */}
         <Image src={logo} boxSize="60px" />
-        <Text fontSize="1xl" fontWeight="bold">
+        <Text fontSize="1xl" fontWeight="bold" hideBelow="sm">
           Game Hub
         </Text>
       </HStack>
