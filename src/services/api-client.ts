@@ -3,6 +3,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 // services/api-client.ts
 export const apiClient = {
+  // Generic GET method to fetch data from the API
   get: async <T>(
     endpoint: string,
     params?: Record<string, string | number>,
@@ -24,4 +25,6 @@ export const apiClient = {
 
     return response.json();
   },
+
+  // Generic POST method to send data to the API
 };
