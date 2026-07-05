@@ -1,11 +1,20 @@
 import useGenre from "@/hooks/useGenre";
 import getCroppedImageUrl from "@/services/image-url";
-import { List, Image, HStack, Text } from "@chakra-ui/react";
+import { List, Image, HStack, Text, Spinner } from "@chakra-ui/react";
 
 const GenreList = () => {
   const { data: genres, loading, error } = useGenre();
 
-  if (loading) return <div>Loading genres...</div>;
+  if (loading)
+    return (
+      <Spinner
+        size="xl"
+        borderWidth="4px" // Replaces 'thickness'
+        borderStartColor="gray.200" // Replaces 'emptyColor'
+        color="blue.500"
+        // For 'speed', consider using a custom animation style if needed
+      />
+    );
   if (error) return <div>Error: {error}</div>;
   if (!genres.length) return <div>No genres available.</div>;
 
