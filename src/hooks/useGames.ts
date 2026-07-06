@@ -13,6 +13,11 @@ export interface Game {
   metacritic: number | null;
 }
 
-const useGames = () => useData<Game>("/games");
+const useGames = (selectedGenreId?: number | null) => {
+  const endpoint = selectedGenreId
+    ? `/games?genres=${selectedGenreId}`
+    : "/games";
+  return useData<Game>(endpoint);
+};
 
 export default useGames;

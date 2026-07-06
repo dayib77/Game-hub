@@ -30,10 +30,12 @@ const PlatformIconsList = ({ platforms }: Props) => {
     web: BsGlobe,
   };
 
+  const icons = platforms.map(p => iconMap[p.slug]).filter(Boolean);
+
   return (
     <HStack gap={2}>
-      {platforms.map(p => (
-        <Icon key={p.id} as={iconMap[p.slug]} boxSize={5} marginRight={2} />
+      {icons.map((IconComponent, index) => (
+        <Icon key={index} as={IconComponent} boxSize={5} marginRight={2} />
       ))}
     </HStack>
   );
