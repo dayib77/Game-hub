@@ -4,9 +4,10 @@ import { List, Image, HStack, Spinner, Button } from "@chakra-ui/react";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenreId?: number | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data: genres, loading, error } = useGenre();
 
   if (loading)
@@ -40,6 +41,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
               borderRadius="md"
             />
             <Button
+              fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
               fontSize="md"
               variant="ghost"
               colorScheme="blue"

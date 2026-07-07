@@ -29,7 +29,10 @@ function App() {
       </GridItem>
 
       <GridItem area="aside" hideBelow="lg" paddingX="5">
-        <GenreList onSelectGenre={genre => setSelectedGenre(genre)} />
+        <GenreList
+          onSelectGenre={genre => setSelectedGenre(genre)}
+          selectedGenreId={selectedGenre?.id}
+        />
       </GridItem>
 
       <GridItem area="main">
