@@ -1,3 +1,4 @@
+import type { GameQuery } from "@/App";
 import useData from "./useData";
 
 export interface Platform {
@@ -13,14 +14,11 @@ export interface Game {
   metacritic: number | null;
 }
 
-const useGames = (
-  selectedGenreId?: number | null,
-  selectedPlatformId?: number | null,
-) => {
+const useGames = (gameQuery: GameQuery) => {
+  const { genre, platform } = gameQuery;
   const params = new URLSearchParams();
-  if (selectedGenreId) params.append("genres", String(selectedGenreId));
-  if (selectedPlatformId)
-    params.append("parent_platforms", String(selectedPlatformId));
+  if (genre?.id) params.append("genres", String(genre.id));
+  if (platform?.id) params.append("parent_platforms", String(platform.id));
 
   const query = params.toString(); // example: "genres=4&parent_platforms=1"
   const endpoint = query ? `/games?${query}` : "/games";
