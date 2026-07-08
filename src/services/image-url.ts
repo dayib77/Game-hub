@@ -1,5 +1,6 @@
+import noImage from "@/assets/Logo/no-image-placeholder-6f3882e0.webp";
 const getCroppedImageUrl = (imageUrl: string): string => {
-  if (!imageUrl) return ""; // Return an empty string if imageUrl is undefined or null
+  if (!imageUrl) return noImage; // Return the default image if imageUrl is undefined or null
 
   const targetSubstring = "media/";
   const index = imageUrl.indexOf(targetSubstring) + targetSubstring.length; // Find the index of the target substring and add its length to get the starting index of the file name
