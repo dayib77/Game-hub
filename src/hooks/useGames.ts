@@ -16,7 +16,9 @@ export interface Game {
 
 const useGames = (gameQuery: GameQuery) => {
   const { genre, platform } = gameQuery;
+
   const params = new URLSearchParams();
+
   if (genre?.id) params.append("genres", String(genre.id));
   if (platform?.id) params.append("parent_platforms", String(platform.id));
 

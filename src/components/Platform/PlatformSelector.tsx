@@ -12,6 +12,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data: platforms, error } = usePlatform();
 
   if (error) return null;
+
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
