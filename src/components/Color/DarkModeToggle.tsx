@@ -15,7 +15,9 @@ const DarkModeToggle = () => {
         onCheckedChange={toggleColorMode}
         label="Dark Mode"
       />
-      <Text fontSize="sm">Dark Mode</Text>
+      <Text fontSize="sm" whiteSpace="nowrap">
+        Dark Mode
+      </Text>
     </HStack>
   );
 };
