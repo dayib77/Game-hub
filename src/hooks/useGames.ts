@@ -15,13 +15,14 @@ export interface Game {
 }
 
 const useGames = (gameQuery: GameQuery) => {
-  const { genre, platform, sortOrder } = gameQuery;
+  const { genre, platform, sortOrder, searchText } = gameQuery;
 
   const params = new URLSearchParams();
 
   if (genre?.id) params.append("genres", String(genre.id));
   if (platform?.id) params.append("parent_platforms", String(platform.id));
   if (sortOrder) params.append("ordering", sortOrder);
+  if (searchText) params.append("search", searchText);
 
   const query = params.toString(); // example: "genres=4&parent_platforms=1"
   const endpoint = query ? `/games?${query}` : "/games";
