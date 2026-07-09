@@ -1,5 +1,5 @@
-import { Box, HStack, Image, Text } from "@chakra-ui/react";
 import logo from "@/assets/Logo/logo.webp";
+import { Box, HStack, Image } from "@chakra-ui/react";
 
 import DarkModeToggle from "../Color/DarkModeToggle";
 import SearchInput from "../Search/SearchInput";
@@ -16,14 +16,14 @@ const NavBar = ({ handleSearch }: Props) => {
         {/*gap="4" */}
         <Image src={logo} boxSize="60px" />
 
-        <Text
+        {/* <Text
           fontSize="1xl"
           fontWeight="bold"
           hideBelow="sm"
           whiteSpace="nowrap"
         >
           Game Hub
-        </Text>
+        </Text> */}
       </HStack>
 
       <Box flexGrow={1} marginLeft="20px" marginRight="20px">
