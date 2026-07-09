@@ -1,5 +1,5 @@
 import noImage from "@/assets/Logo/no-image-placeholder-6f3882e0.webp";
-const getCroppedImageUrl = (imageUrl: string): string => {
+const getCroppedImageUrl = (imageUrl: string | null): string => {
   if (!imageUrl) return noImage; // Return the default image if imageUrl is undefined or null
 
   const targetSubstring = "media/";
