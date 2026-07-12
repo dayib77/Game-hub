@@ -10,7 +10,7 @@ export interface Game {
   id: number;
   name: string;
   background_image: string | null;
-  parent_platforms: { platform: Platform }[];
+  parent_platforms: { platform: Platform }[] | undefined;
   metacritic: number | null;
   rating_top: number;
 }

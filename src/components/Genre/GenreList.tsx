@@ -56,7 +56,8 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
                 fontSize="md"
                 variant="ghost"
-                colorScheme="blue"
+                color={selectedGenre?.id === genre.id ? "bold" : "gray.500"}
+                // colorScheme="blue"
                 // whiteSpace="normal"
                 onClick={() => onSelectGenre(genre)}
               >

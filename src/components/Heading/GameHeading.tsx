@@ -9,9 +9,9 @@ const GameHeading = ({ gameQuery }: Props) => {
   // Heading logic to determine what to display based on the gameQuery props
   // Game
   // Genre Game
-  // Genre Platform Game
-  const heading =
-    `${gameQuery.platform?.name || ""} ${gameQuery.genre?.name || ""}  ${gameQuery.searchText || ""} Games`.trim();
+  // Platform Genre Game
+  const { genre, platform } = gameQuery;
+  const heading = `${platform?.name || ""} ${genre?.name || ""} Games`.trim();
 
   return (
     <Heading as="h1" fontSize="5xl" marginY={5}>
