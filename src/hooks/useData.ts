@@ -1,10 +1,5 @@
-import { apiClient } from "@/services/api-client";
+import { apiClient, type fetchResponse } from "@/services/api-client";
 import { useEffect, useState } from "react";
-
-interface fetchResponse<T> {
-  count: number;
-  results: T[];
-}
 
 const useData = <T>(endpoint: string) => {
   const [data, setData] = useState<T[]>([]);

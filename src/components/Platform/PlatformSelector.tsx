@@ -18,7 +18,8 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
       <Menu.Trigger asChild>
         <Button>
           {selectedPlatform
-            ? platforms?.find(p => p.slug === selectedPlatform.slug)?.name
+            ? platforms?.results.find(p => p.slug === selectedPlatform.slug)
+                ?.name
             : "Select Platform"}
           <span style={{ marginLeft: "8px" }}></span>
           <BsChevronDown />
@@ -26,7 +27,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
       </Menu.Trigger>
       <Menu.Positioner>
         <Menu.Content width="200px">
-          {platforms?.map(platform => (
+          {platforms?.results.map(platform => (
             <Menu.Item
               key={platform.id}
               value={platform.slug}

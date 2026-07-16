@@ -1,5 +1,6 @@
 import type { GameQuery } from "@/App";
-import useData from "./useData";
+import { apiClient, type fetchResponse } from "@/services/api-client";
+import { useQuery } from "@tanstack/react-query";
 
 export interface Platform {
   id: number;
@@ -28,7 +29,12 @@ const useGames = (gameQuery: GameQuery) => {
   const query = params.toString(); // example: "genres=4&parent_platforms=1"
   const endpoint = query ? `/games?${query}` : "/games";
 
-  return useData<Game>(endpoint);
+  // return useData<Game>(endpoint);
+
+  return useQuery<fetchResponse<Game>, Error>({
+    queryKey: ["games", gameQuery],
+    queryFn: () => apiClient.get(endpoint),
+  });
 };
 
 export default useGames;

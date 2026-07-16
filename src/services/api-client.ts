@@ -1,6 +1,11 @@
 const BASE_URL = "https://api.rawg.io/api";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
+export interface fetchResponse<T> {
+  count: number;
+  results: T[];
+}
+
 // services/api-client.ts
 export const apiClient = {
   // Generic GET method to fetch data from the API

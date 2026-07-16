@@ -15,9 +15,11 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, loading, error } = useGenre();
+  const { data: genres, isLoading, error } = useGenre();
 
-  if (loading)
+  // const genresList = Array.isArray(genres) ? (genres as Genre[]) : [];
+
+  if (isLoading)
     return (
       <Spinner
         size="xl"
@@ -27,8 +29,10 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
         // For 'speed', consider using a custom animation style if needed
       />
     );
-  if (error) return <div>Error: {error}</div>;
-  if (!genres.length) return <div>No genres available.</div>;
+
+  if (error) return <div>Error: {error.message}</div>;
+
+  if (!genres?.results.length) return <div>No genres available.</div>;
 
   return (
     <>
@@ -37,7 +41,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
       </Heading>
 
       <List.Root listStyleType="none">
-        {genres.map(genre => (
+        {genres?.results.map(genre => (
           <List.Item
             key={genre.id}
             padding={2}

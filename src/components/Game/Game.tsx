@@ -11,17 +11,17 @@ interface Props {
 }
 
 const Game = ({ gameQuery }: Props) => {
-  const { data: games, loading, error } = useGames(gameQuery);
+  const { data: games, isLoading, error } = useGames(gameQuery);
 
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
     <>
       {/* Error message */}
-      {error && <div>Error: {error}</div>}
+      {error && <div>Error: {error.message}</div>}
 
       {/* No game data available */}
-      {!loading && !error && games.length === 0 && (
+      {!isLoading && !error && games?.results.length === 0 && (
         <div>No game data available.</div>
       )}
 
@@ -32,7 +32,7 @@ const Game = ({ gameQuery }: Props) => {
         // alignItems="start"
       >
         {/* Loading skeletons */}
-        {loading &&
+        {isLoading &&
           skeletons.map(s => (
             <GameCardContainer key={s}>
               <GameSkeleton />
@@ -40,9 +40,9 @@ const Game = ({ gameQuery }: Props) => {
           ))}
 
         {/* Game cards */}
-        {!loading &&
+        {!isLoading &&
           !error &&
-          games.map(g => (
+          games?.results.map(g => (
             <GameCardContainer key={g.id}>
               <GameCard game={g} />
             </GameCardContainer>
