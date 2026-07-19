@@ -1,7 +1,7 @@
 import type { GameQuery } from "@/App";
 
 import APIClient from "@/services/api-client";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import type { Platform } from "./usePlatform";
 
 export interface Game {
@@ -16,23 +16,10 @@ export interface Game {
 const apiClient = new APIClient<Game>("/games");
 
 const useGames = (gameQuery: GameQuery) => {
-  // const { genre, platform, sortOrder, searchText } = gameQuery;
-
-  // const params = new URLSearchParams();
-
-  // if (genre?.id) params.append("genres", String(genre.id));
-  // if (platform?.id) params.append("parent_platforms", String(platform.id));
-  // if (sortOrder) params.append("ordering", sortOrder);
-  // if (searchText) params.append("search", searchText);
-
-  // const query = params.toString(); // example: "genres=4&parent_platforms=1"
-  // const endpoint = query ? `/games?${query}` : "/games";
-
-  // return useData<Game>(endpoint);
-
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: ["games", gameQuery],
-    queryFn: () => {
+    initialPageParam: 1,
+    queryFn: ({ pageParam }) => {
       const requestParams: Record<string, string | number> = {};
 
       if (gameQuery.genre?.id) {
@@ -47,8 +34,14 @@ const useGames = (gameQuery: GameQuery) => {
       if (gameQuery.searchText) {
         requestParams["search"] = gameQuery.searchText;
       }
+      if (pageParam) {
+        requestParams["page"] = pageParam;
+      }
 
       return apiClient.get(requestParams);
+    },
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.next ? allPages.length + 1 : undefined;
     },
   });
 };

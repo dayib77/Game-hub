@@ -3,6 +3,7 @@ const API_KEY = import.meta.env.VITE_API_KEY || "";
 
 export interface fetchResponse<T> {
   count: number;
+  next: string | null;
   results: T[];
 }
 
