@@ -17,8 +17,6 @@ interface Props {
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data: genres, isLoading, error } = useGenre();
 
-  // const genresList = Array.isArray(genres) ? (genres as Genre[]) : [];
-
   if (isLoading)
     return (
       <Spinner
