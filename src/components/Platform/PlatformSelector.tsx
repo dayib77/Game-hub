@@ -1,11 +1,11 @@
-import type { Platform } from "@/hooks/usePlatform";
-import usePlatform from "@/hooks/usePlatform";
+import usePlatform, { type Platform } from "@/hooks/usePlatform";
 import { Button, Menu } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
+// Describes component's input
 interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform?: Platform | null;
+  onSelectPlatform: (platform: Platform | null) => void;
+  selectedPlatform?: number;
 }
 
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
@@ -18,8 +18,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
       <Menu.Trigger asChild>
         <Button>
           {selectedPlatform
-            ? platforms?.results.find(p => p.slug === selectedPlatform.slug)
-                ?.name
+            ? platforms?.results.find(p => p.id === selectedPlatform)?.name
             : "Select Platform"}
           <span style={{ marginLeft: "8px" }}></span>
           <BsChevronDown />

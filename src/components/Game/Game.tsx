@@ -36,6 +36,7 @@ const Game = ({ gameQuery }: Props) => {
       {!isLoading && !error && data?.pages.length === 0 && (
         <div>No game data available.</div>
       )}
+
       <InfiniteScroll
         dataLength={fetchedGamesCount}
         hasMore={!!hasNextPage}
@@ -70,6 +71,8 @@ const Game = ({ gameQuery }: Props) => {
             ))}
         </SimpleGrid>
       </InfiniteScroll>
+
+      {/* Infinite queries button */}
       {/* {hasNextPage && (
         <Button onClick={() => fetchNextPage()} marginY={5}>
           {isFetchingNextPage ? "Loading..." : "Load More"}

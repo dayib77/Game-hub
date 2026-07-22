@@ -22,11 +22,11 @@ const useGames = (gameQuery: GameQuery) => {
     queryFn: ({ pageParam }) => {
       const requestParams: Record<string, string | number> = {};
 
-      if (gameQuery.genre?.id) {
-        requestParams["genres"] = gameQuery.genre.id;
+      if (gameQuery.genreID) {
+        requestParams["genres"] = gameQuery.genreID;
       }
-      if (gameQuery.platform?.id) {
-        requestParams["parent_platforms"] = gameQuery.platform.id;
+      if (gameQuery.platformID) {
+        requestParams["parent_platforms"] = gameQuery.platformID;
       }
       if (gameQuery.sortOrder) {
         requestParams["ordering"] = gameQuery.sortOrder;

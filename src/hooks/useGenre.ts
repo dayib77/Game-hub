@@ -2,8 +2,9 @@ import genres from "@/components/Genre/genres";
 import APIClient from "@/services/api-client";
 import { useQuery } from "@tanstack/react-query";
 
-const apiClient = new APIClient<Genre>("/genres");
+const apiClient = new APIClient<Genre>("/genres"); // endpoint
 
+// Domain entity
 export interface Genre {
   id: number;
   name: string;

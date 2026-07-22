@@ -9,12 +9,13 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
+// Describes component's input
 interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenre?: Genre | null;
+  onSelectGenre: (genreID: Genre | null) => void;
+  selectedGenreID?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreID }: Props) => {
   const { data: genres, isLoading, error } = useGenre();
 
   if (isLoading)
@@ -55,10 +56,10 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 borderRadius="md"
               />
               <Button
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
+                fontWeight={selectedGenreID === genre.id ? "bold" : "normal"}
                 fontSize="md"
                 variant="ghost"
-                color={selectedGenre?.id === genre.id ? "bold" : "gray.500"}
+                color={selectedGenreID === genre.id ? "bold" : "gray.500"}
                 // colorScheme="blue"
                 // whiteSpace="normal"
                 onClick={() => onSelectGenre(genre)}
