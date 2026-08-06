@@ -4,11 +4,7 @@ import { Box, HStack, Image } from "@chakra-ui/react";
 import DarkModeToggle from "../Color/DarkModeToggle";
 import SearchInput from "../Search/SearchInput";
 
-interface Props {
-  handleSearch: (searchText: string) => void;
-}
-
-const NavBar = ({ handleSearch }: Props) => {
+const NavBar = () => {
   return (
     <HStack padding="10px">
       {/* Horizontal stack */}
@@ -27,7 +23,7 @@ const NavBar = ({ handleSearch }: Props) => {
       </HStack>
 
       <Box flexGrow={1} marginLeft="20px" marginRight="20px">
-        <SearchInput onSearch={handleSearch} />
+        <SearchInput />
       </Box>
 
       <DarkModeToggle />

@@ -1,14 +1,12 @@
 import { Input, InputGroup } from "@chakra-ui/react";
 // import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
+import useGameQueryStore from "../Game/store";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = () => {
   // Another to solve - useRef
   //   const ref = useRef<HTMLInputElement>(null);
+  const setSearchText = useGameQueryStore(s => s.setSearchText);
   return (
     // <form
     //   onSubmit={e => {
@@ -23,7 +21,7 @@ const SearchInput = ({ onSearch }: Props) => {
         placeholder="Search games..."
         variant="outline"
         borderRadius={20}
-        onChange={e => onSearch(e.target.value)}
+        onChange={e => setSearchText(e.target.value)}
       />
     </InputGroup>
     // </form>
