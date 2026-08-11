@@ -6,6 +6,7 @@ import SortSelector from "@/components/Sort/SortSelector";
 import { Box, Grid, GridItem, HStack } from "@chakra-ui/react";
 
 const Home = () => {
+  //   throw new Error("Something went wrong !");
   return (
     <Grid
       // The Blueprint for the layout of the application
