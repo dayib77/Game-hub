@@ -1,14 +1,17 @@
 import NavBar from "@/components/NavBar/NavBar";
 import ErrorBoundary from "@/Errors/ErrorBoundary";
+import { Box } from "@chakra-ui/react";
 import { Outlet } from "react-router";
 
 const Layout = () => {
   return (
     <>
       <NavBar />
-      <ErrorBoundary>
-        <Outlet />
-      </ErrorBoundary>
+      <Box padding={5}>
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
+      </Box>
     </>
   );
 };

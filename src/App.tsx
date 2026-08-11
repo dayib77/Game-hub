@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router";
-import Layout from "./Layout/Layout";
-import Home from "./Layout/Home";
 import GameDetailPage from "./components/Game/GameDetailPage";
 import NotFoundPage from "./Errors/NotFoundPage";
-import { Box } from "@chakra-ui/react";
+import Home from "./Layout/Home";
+import Layout from "./Layout/Layout";
 
 // 'undefined' : absence of a value
 // 'null' : intentional absence of a value
@@ -18,16 +17,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="games/:id" element={<GameDetailPage />} />
+        <Route path="games/:slug" element={<GameDetailPage />} />
 
-        <Route
-          path="*"
-          element={
-            <Box padding={5}>
-              <NotFoundPage />
-            </Box>
-          }
-        />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

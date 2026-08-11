@@ -4,6 +4,7 @@ import PlatformIconsList from "./PlatformIconsList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "@/services/image-url";
 import Emoji from "../Emoji/Emoji";
+import { Link } from "react-router";
 
 interface Props {
   game: Game;
@@ -23,7 +24,7 @@ const GameCard = ({ game }: Props) => {
 
         <Box marginTop="4">
           <Heading as="h3" size="md">
-            {game.name}
+            <Link to={`games/${game.slug}`}>{game.name}</Link>
           </Heading>
           <Text fontSize="sm" color="gray.500">
             Game ID: {game.id}

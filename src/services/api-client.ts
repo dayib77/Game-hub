@@ -16,7 +16,7 @@ class APIClient<T> {
   }
 
   // Generic GET method to fetch data from the API
-  get = async (
+  getAll = async (
     params?: Record<string, string | number>,
   ): Promise<fetchResponse<T>> => {
     const url = new URL(`${BASE_URL}${this.endpoint}`);
@@ -28,6 +28,16 @@ class APIClient<T> {
         url.searchParams.append(key, String(value)),
       );
     }
+
+    const response = await fetch(url.toString());
+    if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+
+    return response.json();
+  };
+
+  get = async (id: number | string): Promise<T> => {
+    const url = new URL(`${BASE_URL}${this.endpoint}/${id}`);
+    url.searchParams.append("key", API_KEY);
 
     const response = await fetch(url.toString());
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);

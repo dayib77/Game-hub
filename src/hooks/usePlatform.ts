@@ -19,7 +19,7 @@ const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 const usePlatform = () =>
   useQuery({
     queryKey: ["platforms"],
-    queryFn: () => apiClient.get(),
+    queryFn: () => apiClient.getAll(),
     staleTime: ms("24h"),
     initialData: { count: platform.length, next: null, results: platform }, // cached data — no loading spinner, no skeleton, no empty state
   });
