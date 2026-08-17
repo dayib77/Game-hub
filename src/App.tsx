@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 import GameDetailPage from "./components/Game/GameDetailPage";
-import NotFoundPage from "./Errors/NotFoundPage";
+import NotFoundPage from "./errors/NotFoundPage";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 

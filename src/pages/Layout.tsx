@@ -1,5 +1,5 @@
 import NavBar from "@/components/NavBar/NavBar";
-import ErrorBoundary from "@/Errors/ErrorBoundary";
+import ErrorBoundary from "@/errors/ErrorBoundary";
 import { Box } from "@chakra-ui/react";
 import { Outlet } from "react-router";
 
