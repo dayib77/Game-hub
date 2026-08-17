@@ -3,7 +3,7 @@ import ms from "ms";
 
 import platform from "@/components/Platform/platform";
 import APIClient from "@/services/api-client";
-import type { Platform } from "../entities/Platform";
+import type Platform from "../entities/Platform";
 
 const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 
