@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router";
 import GameDetailPage from "./components/Game/GameDetailPage";
 import NotFoundPage from "./Errors/NotFoundPage";
-import Home from "./Layout/Home";
-import Layout from "./Layout/Layout";
+import Home from "./pages/Home";
+import Layout from "./pages/Layout";
 
 // 'undefined' : absence of a value
 // 'null' : intentional absence of a value

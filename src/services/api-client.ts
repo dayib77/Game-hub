@@ -35,6 +35,7 @@ class APIClient<T> {
     return response.json();
   };
 
+  // Get detail of a Game
   get = async (id: number | string): Promise<T> => {
     const url = new URL(`${BASE_URL}${this.endpoint}/${id}`);
     url.searchParams.append("key", API_KEY);
